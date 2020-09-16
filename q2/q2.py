@@ -1,0 +1,3 @@
+
+def collapse(L) :
+    
