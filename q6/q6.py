@@ -1,13 +1,15 @@
 from functools import reduce 
+from collections import OrderedDict
 class BlackMoneyHolder:
     def __init__(self,name,account_info):
         self.name=name
         self.account_info=account_info
         self.index=0
+        self.account_info=OrderedDict(sorted(self.account_info.items()))
     
     def update_amount(self,bank_name,amount):
         if bank_name in self.account_info:
-            self.account_info[bank_name]=self.account_info[bank_name]+amount
+            self.account_info[bank_name]+=amount
         else:
             self.account_info[bank_name]=amount
     
@@ -15,16 +17,15 @@ class BlackMoneyHolder:
         return reduce(lambda x,y: x+y,self.account_info.values())
     
     def __iter__(self):
+        self.index=0
         return self
     
     def __next__(self):
-        l=len(self.account_info)
-        if self.index<l:
-            key=list(self.account_info)[self.index]
-            value=list(self.account_info.values())[self.index]
+        try:
             self.index+=1
-            return (key,value)
-        raise StopIteration
+            return self[self.index-1]
+        except IndexError:
+            raise StopIteration
 
     def __str__(self):
         string=''
@@ -57,19 +58,27 @@ class BlackMoneyHolder:
         a=reduce(lambda x,y: x+y,self.account_info.values())
         b=other.total_black_money()
         return a>=b
-
+    
+    def __len__(self):
+        l=len(self.account_info)
+        return l
+    
+    def __getitem__(self,pos):
+        key=list(self.account_info)[pos]
+        value=list(self.account_info.values())[pos]
+        return (key,value)
 
 name='Sonia Gandhi'
 account_info={
     'A':100,
-    'B':200,
-    'C':300
+    'C':200,
+    'B':300
 }
 B1=BlackMoneyHolder(name,account_info)
-print(B1)
+#print(B1)
 account_info1={
     'A':100,
-    'B':200,
+    'D':200,
     'C':300
 }
 B2=BlackMoneyHolder('Rahul',account_info1)
