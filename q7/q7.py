@@ -16,4 +16,4 @@ if __name__ == "__main__":
         hour_angle=(360/H)*a+(360/(H*M))*b+(360/(H*M*S))*c
         minute_angle=(360/M)*b+(360/(M*S))*c
         diff_angle=abs(float(hour_angle)-float(minute_angle))
-        print(round(diff_angle),2))
+        print(round(diff_angle,2))
