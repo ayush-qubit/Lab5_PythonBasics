@@ -67,19 +67,3 @@ class BlackMoneyHolder:
         key=list(self.account_info)[pos]
         value=list(self.account_info.values())[pos]
         return (key,value)
-
-name='Sonia Gandhi'
-account_info={
-    'A':100,
-    'C':200,
-    'B':300
-}
-B1=BlackMoneyHolder(name,account_info)
-#print(B1)
-account_info1={
-    'A':100,
-    'D':200,
-    'C':300
-}
-B2=BlackMoneyHolder('Rahul',account_info1)
-print(B1==B2,B1<B2,B1>B2,B1>=B2,B1<=B2)
