@@ -9,7 +9,7 @@ class BlackMoneyHolder:
     
     def update_amount(self,bank_name,amount):
         if bank_name in self.account_info:
-            self.account_info[bank_name]+=amount
+            self.account_info[bank_name]=amount
         else:
             self.account_info[bank_name]=amount
     
