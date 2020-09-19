@@ -12,21 +12,21 @@ path = os.path.join(path, sys.argv[1])
 boys_list = open(path, "r").read().split(' ')
 #print(boys_list)
 
-dick={}
+dic={}
 
 for boy in boys_list:
-	if boy in dick:
-		dick[boy] += 1
+	if boy in dic:
+		dic[boy] += 1
 	else:
-		dick[boy] = 1
+		dic[boy] = 1
 
 #print(dick)
 count = 0
 simp = ""
 
-for boy in dick:
-	if dick[boy] > count:
-		count = dick[boy]
+for boy in dic:
+	if dic[boy] > count:
+		count = dic[boy]
 		simp = boy
 
 print(simp)
