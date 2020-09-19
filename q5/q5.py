@@ -21,4 +21,4 @@ if __name__ == "__main__":
     
     print(d1)
     l=list(d2.items())
-    print(sorted(l,key=lambda x: x[1],reverse=True))
+    print(sorted(l,key=lambda x: (x[1],x[0]),reverse=True))
