@@ -12,3 +12,7 @@ print(l)
 L = [["this"],["is"],["the"],["easiest"],["problem"],["of"],["this"],["outlab"]]
 l=collapse(L)
 print(l) 
+
+L=[[""],[""],["ayush"],["Sharma"],[""]]
+l=collapse(L)
+print(l)
